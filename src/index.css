@@ -1,0 +1,39 @@
+body {
+  position: relative;
+  color: white;
+  height: 100vh;
+  overflow-y: hidden;
+}
+html,
+body,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+ol,
+table,
+td,
+tr,
+th,
+form {
+  padding: 0;
+  margin: 0;
+}
+ul,
+li,
+ol {
+  list-style: none;
+}
+#root {
+  height: 100%;
+}
+
+#root > * {
+  height: 100%;
+}
