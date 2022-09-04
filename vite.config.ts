@@ -14,7 +14,20 @@ export default defineConfig({
     alias: [
       { find: "src", replacement: path.resolve(__dirname, "src") },
       { find: "@", replacement: path.resolve(__dirname, "src") },
+      { find: /^~/, replacement: '' }
     ],
+  },
+   // less 配置
+   css: {
+    preprocessorOptions: {
+      less: {
+          modifyVars: {
+            // 更改主题
+            'primary-color': '#6680FF',
+        },
+          javascriptEnabled: true
+      }
+    }
   },
   build: {
     terserOptions: {
@@ -56,6 +69,9 @@ export default defineConfig({
         },
         // dynamic shortcuts
         [/^btn-(.*)$/, ([, c]) => `bg-${c}-400 text-${c}-100 py-2 px-4 rounded-lg`],  // class="btn-green"
+        {
+          layoutHeader: 'h-16 flex justify-between items-center bg-brand-primary text-brand-title px-6',
+        }
       ],
       preflights: [
 
@@ -65,7 +81,8 @@ export default defineConfig({
         colors: {
           'veryCool': '#0000ff', // class="text-very-cool"
           'brand': {
-            'primary': '#FFE0E2', //class="bg-brand-primary"
+            'primary': '#191C35', //class="bg-brand-primary"
+            'title': '#FFFFFF'
           },
           yellow: {
             warning: '#FFC833'
@@ -96,6 +113,9 @@ export default defineConfig({
             '45': 'rgba(255, 255, 255, 0.45)'
           }
         },
+        boxShadow: {
+          'avatar': '1px 3px 6px 4px rgba(0,0,0,0.12),1px 6px 16px 1px rgba(0,0,0,0.08), 1px 9px 28px 8px rgba(0,0,0,0.05)'
+        }
       }
       /* options */
     })
