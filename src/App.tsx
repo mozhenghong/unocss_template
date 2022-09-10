@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css'
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
+import Login from '@/pages/login';
 import Home from '@/pages/home';
 import LayoutComponent from '@/layouts';
 
@@ -8,8 +9,9 @@ function App() {
   return (
     <HashRouter>
       <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<LayoutComponent />}>
-          <Route index element={<Home />} />
           <Route path="/home" element={<div />} />
           <Route path="/bbb" element={<Home />} />
           <Route path="/ccc" element={<div />} />
